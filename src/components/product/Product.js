@@ -7,6 +7,7 @@ const price =89;
     <div>
       <p>productName:{props.title}</p>
       <p>productPrice:{props.price}</p>
+      <p>{props.children}</p>
     </div>
   )
 }
