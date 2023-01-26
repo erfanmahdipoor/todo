@@ -1,5 +1,5 @@
 import React from "react"
-const App=()=>{ return React.createElement("div",
-{id:"main"},
-"hello") }
+const App=()=>{ return(<div id="main">hello jsx</div>)
+
+}
 export default App
