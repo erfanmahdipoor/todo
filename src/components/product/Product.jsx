@@ -6,7 +6,8 @@ const price =89;
   return (
     <div className='item'>
       <p>productName:{props.title}</p>
-      <p>productPrice:{props.price}</p>
+      <p onclick ={props.click}>productPrice:{props.price}</p>
+     <input type="text" onChange={props.change} />
       <p>{props.children}</p>
     </div>
   )

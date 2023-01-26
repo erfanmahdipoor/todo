@@ -11,12 +11,12 @@ state={
         {title:"book4", price:42}
     ]
 }
-    changePriceHandler=()=>{
+    changePriceHandler=(newTitle)=>{
         console.log("changePrice")
    this.setState(
     {
         product:[
-            {title:"book1", price:120},
+            {title:newTitle, price:120},
             {title:"book2", price:220},
             {title:"book3", price:320},
             {title:"book4", price:420}
@@ -25,7 +25,22 @@ state={
    )
 
     }
+ clicked=()=>{
+    console.log("clicked");
+ }
 
+changeTitleHandler=(event)=>{
+    this.setState(
+        {
+            product:[
+                {title:"book1", price:120},
+                {title:event.target.value, price:220},
+                {title:"book3", price:320},
+                {title:"book4", price:420}
+            ]
+        }
+    )
+}
     render(){
     return( 
     <div className="center">
@@ -36,14 +51,17 @@ state={
         price={this.state.product[0].price}/>
         <Product 
         title={this.state.product[1].title}
-        price={this.state.product[1].price}/>
+        price={this.state.product[1].price}
+        change={this.changeTitleHandler}/>
         <Product 
         title={this.state.product[2].title}
         price={this.state.product[2].price}/>
         <Product 
         title={this.state.product[3].title}
-        price={this.state.product[3].price}/>
-        <button className="btn" onClick={this.changePriceHandler}>change price</button>
+        price={this.state.product[3].price}
+        click={this.changePriceHandler}/>
+        <button className="btn" onClick={this.changePriceHandler.bind(this,"new title")}>change price</button>
+        <button className="btn" onClick={()=>{this.changePriceHandler("newTitle")}}>change price</button>
     </div>
 
     )
