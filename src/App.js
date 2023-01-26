@@ -6,6 +6,9 @@ render(){
     <div>
         <div id="main">hello jsx</div>
         <Product/>
+        <Product/>
+        <Product/>
+        <Product/>
     </div>
 
     )

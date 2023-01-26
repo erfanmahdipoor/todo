@@ -1,8 +1,13 @@
 import React from 'react'
 
 const Product = () => {
+const price =89;
+
   return (
-    <div>ProductName:book</div>
+    <div>
+      <p>productName:book</p>
+      <p>productPrice:{price}</p>
+    </div>
   )
 }
 
