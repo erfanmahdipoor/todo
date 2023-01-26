@@ -5,10 +5,10 @@ render(){
     return( 
     <div>
         <div id="main">hello jsx</div>
-        <Product/>
-        <Product/>
-        <Product/>
-        <Product/>
+        <Product title="book1" price="12"/>
+        <Product title="book2" price="22"/>
+        <Product title="book3" price="32"/>
+        <Product title="book4" price="42"/>
     </div>
 
     )
