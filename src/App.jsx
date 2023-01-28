@@ -1,5 +1,4 @@
 import React from "react"
-import { useState } from "react"
 import './app.css'
 import Product from "./components/product/Product"
 class App extends React.Component{
@@ -9,7 +8,8 @@ state={
         {title:"book2", price:22},
         {title:"book3", price:32},
         {title:"book4", price:42}
-    ]
+    ],
+    showProduct:false
 }
     changePriceHandler=(newTitle)=>{
         console.log("changePrice")
@@ -40,12 +40,26 @@ changeTitleHandler=(event)=>{
             ]
         }
     )
+} 
+toggleProductHandler=()=>{
+const show =this.state.showProduct
+this.setState({...this.state.product ,showProduct:!show})
 }
     render(){
+        const btn ={
+            backgroundColor:'#7b1fa2',
+            color:'#ffffff',
+            font:'inherit',
+            border:'none'
+
+        }
     return( 
     <div className="center">
 
         <h1 id="main">book store</h1>
+        <button style={btn} onClick={this.toggleProductHandler}>show/hide product</button>
+        {this.state.showProduct?(
+        <div>
         <Product 
         title={this.state.product[0].title}
         price={this.state.product[0].price}/>
@@ -60,8 +74,10 @@ changeTitleHandler=(event)=>{
         title={this.state.product[3].title}
         price={this.state.product[3].price}
         click={this.changePriceHandler}/>
-        <button className="btn" onClick={this.changePriceHandler.bind(this,"new title")}>change price</button>
-        <button className="btn" onClick={()=>{this.changePriceHandler("newTitle")}}>change price</button>
+        </div>
+        ):null}
+        <button className="btn" onClick={this.changePriceHandler.bind(this,"bind")}>change price</button>
+        <button className="btn" onClick={()=>{this.changePriceHandler("arrow")}}>change price</button>
     </div>
 
     )
